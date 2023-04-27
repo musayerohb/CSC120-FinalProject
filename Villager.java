@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Villager {
 
-    public void startQuest(Scanner userInput) {
+    public String startQuest(Scanner userInput, User user) {
         System.out.println(("'There is a special ring I lost in my house, and I can't seem to find it! Could you please help me?'"));
         
         System.out.println("How do you respond?");
@@ -13,22 +13,23 @@ public class Villager {
 
         if (userSelect.equals("A") || userSelect.equals("a")) {
             System.out.println("'Thank you! Feel free to start looking around whenever you're ready.'");
-            //QUEST START
+            System.out.println("");
+            System.out.println("The villager steps aside and you walk into the house. You're standing in the living room.");
+            return user.currentLocation = "Living Room";
         }
         else if (userSelect.equals("B") || userSelect.equals("b")) {
             System.out.println("'Oh. Okay. Have a great day then, I guess.'");
             System.out.println("The villager closes the door.");
-            System.out.println("Quest failed! You rejected it.");
-            return;   
+            System.out.println("Quest failed! You rejected the quest.");
         }
         else if (userSelect.equals("C") || userSelect.equals("c")) {
             System.out.println("The villager stares at you and slowly closes the door.");
             System.out.println("Quest failed! The villager was too weirded out by your silence to give you a quest.");
-            return;
         }
+        return user.currentLocation;
     }
 
-    public void Villager_conversation(Scanner userInput) {
+    public void Villager_conversation(Scanner userInput, User user) {
         System.out.println("The player is a local resident doing tasks to help the people of the village. They knock on the door to a cottage and are greeted by a humble villager.");
         System.out.println("'Hello there! How are you?'");
         
@@ -40,7 +41,7 @@ public class Villager {
 
         //A
         if (userSelect.equals("a") || userSelect.equals("A")) {
-            //gain reputation
+            user.changeReputation(5);    
             System.out.println("'Well that's lovely to hear! Tell me, do you have a keen eye?");
             
             System.out.println("How do you respond?");
@@ -51,28 +52,27 @@ public class Villager {
               
                 //A, A (works)
                 //(Code is printing this out before allowing user to answer.) alright i gotta make sure I ask it to input stuff again.
-                
                 if (userSelect.equals("a") || userSelect.equals("A")) {
-                    this.startQuest(userInput);
+                    this.startQuest(userInput, user);
                 }
                 //A, B (works)
                 else if (userSelect.equals("b") || userSelect.equals("B")) {
                     System.out.println("'I am...do you have a hearing problem?'");
-                    //lose reputation
+                    user.changeReputation(-2);
                     System.out.println("'Anyways, I hope your sight is not as bad, because I need your help.'");
-                    this.startQuest(userInput);
+                    this.startQuest(userInput, user);
                 }
                 //A, C (works)
                 else if (userSelect.equals("C") || userSelect.equals("c")) {
                     System.out.println("'Well, you look like it, so listen here.'");
-                    this.startQuest(userInput);
+                    this.startQuest(userInput, user);
                 } 
 
         }
 
         //B
         else if (userSelect.equals("b") || userSelect.equals("B")) {
-            //lose reputation
+            user.changeReputation(-5);    
             System.out.println("'That's just rude. You're no looker yourself but you don't see me blurting it out.'");
             
             System.out.println("How do you respond?");
@@ -83,9 +83,9 @@ public class Villager {
 
             //B, A (works)
             if (userSelect.equals("a") || userSelect.equals("A")) {
-                //lose reputation
+                user.changeReputation(-3);    
                 System.out.println("The villager grumbles. 'Unfortunately, I do.'");
-                this.startQuest(userInput);
+                this.startQuest(userInput, user);
             }
             
             //B, B (chooses b automatically)
@@ -100,21 +100,21 @@ public class Villager {
 
                     //B, B, A (not tested, probably works)
                     if (userSelect.equals("a") || userSelect.equals("A")) {
-                        this.startQuest(userInput);
+                        this.startQuest(userInput, user);
                     }
 
                     //B, B, B (works)
                     else if (userSelect.equals("b") || userSelect.equals("B")) {
                         System.out.println("'I am...do you have a hearing problem?'");
-                        //lose reputation
+                        user.changeReputation(-1);    
                         System.out.println("'Anyways, I hope your sight is not as bad, because I need your help.'");
-                        this.startQuest(userInput);
+                        this.startQuest(userInput, user);
                     }
                     
                     //B, B, C (not tested, probably works)
                     else if (userSelect.equals("c") || userSelect.equals("C")) {
                         System.out.println("'Well, you look like it, so listen here.'");
-                        this.startQuest(userInput);
+                        this.startQuest(userInput, user);
                     }
             }
 
@@ -130,14 +130,14 @@ public class Villager {
 
                     //B, C, A
                     if (userSelect.equals("a") || userSelect.equals("A")) {
-                        this.startQuest(userInput);
+                        this.startQuest(userInput, user);
                     }
                     //B, C, B
                     else if (userSelect.equals("b") || userSelect.equals("B")) {
                             System.out.println("'I am...do you have a hearing problem?'");
-                            //lose reputation
+                            user.changeReputation(-1);    
                             System.out.println("'Anyways, I hope your sight is not as bad, because I need your help.'");
-                            this.startQuest(userInput);
+                            this.startQuest(userInput, user);
                     }
                     
                     //B, C, C
@@ -161,15 +161,15 @@ public class Villager {
             
             //C, A
             if (userSelect.equals("a") || userSelect.equals("A")) {
-                    this.startQuest(userInput);
+                    this.startQuest(userInput, user);
             }
 
             //C, B
             else if (userSelect.equals("b") || userSelect.equals("B")) {
                     System.out.println("'I am...do you have a hearing problem?'");
-                    //lose reputation
+                    user.changeReputation(-1);    
                     System.out.println("'Anyways, I hope your sight is not as bad, because I need your help.'");
-                    this.startQuest(userInput);
+                    this.startQuest(userInput, user);
             }
 
             //C, C (works)
