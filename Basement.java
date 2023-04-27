@@ -2,8 +2,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Hashtable;
 
-
-
 public class Basement {
 
     public Hashtable<String, String> openableItems;
@@ -12,16 +10,31 @@ public class Basement {
     public ArrayList<String> adjacentRooms;
 
     public Basement() {
-        Hashtable<String, String> openable_items = new Hashtable<String, String>();
+        this.openableItems = new Hashtable<String, String>();
         ArrayList<String> adjacentRooms = new ArrayList<>(Arrays.asList("Basement"));
-        openable_items.put("cabinet", "You open the cabinet.");
-        openable_items.put("door", "You open the door.");
-        // basement_openable_items.put("drawer", "You open the drawer.");
-        // basement_openable_items.put("cabinets", "You open the cabinets.");
-        // basement_openable_items.put("doors", "You open the doors.");
-        // basement_openable_items.put("drawers", "You open the drawers.");
-        // basement_openable_items.put("barrel", "You open the barrel.");
-        // basement_openable_items.put("barrels", "You open the barrels.");
+        openableItems.put("cabinet", "You open the cabinet.");
+        openableItems.put("door", "You open the door.");
+        openableItems.put("barrel", "You open the barrel.");
+        openableItems.put("barrels", "You open the barrels.");
+        grabbableItems.put("candle", "You take a candle from the wall.");
+
+    }
+    
+    //We need to generalize this later so we don't have to rewrite it over and again.
+    public void moveThroughDoor(User user) {
+        if (this.adjacentRooms.size() > 1) {
+            System.out.println("The door to the Bedroom or to the Kitchen? (Type 'Bedroom' or 'Kitchen' to choose.)");
+            String userSelect = user.userInput.nextLine();
+            if (userSelect.equals("Bedroom")) {
+                System.out.println("You walk into the Bedroom.");
+                user.currentLocation = "Bedroom";
+            }
+            else if (userSelect.equals("Kitchen")) {
+                System.out.println("You walk into the Kitchen.");
+                user.currentLocation = "Kitchen";
+            }
+
+        }
     }
     
 }
