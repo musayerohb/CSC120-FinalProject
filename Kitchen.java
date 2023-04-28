@@ -10,8 +10,8 @@ public class Kitchen {
 
     public Kitchen() {
         this.openableItems = new Hashtable<String, String>();
-        this.grabbableItems = new Hashtable<String, String>();
-        this.lookableItems = new Hashtable<String, String>();     
+        this.lookableItems = new Hashtable<String, String>();
+        this.grabbableItems = new Hashtable<String, String>();    
         this.adjacentRooms = new ArrayList<>(Arrays.asList("Living Room", "Basement"));
         openableItems.put("door", "You open the door.");
         lookableItems.put("table", "You look under the table.");

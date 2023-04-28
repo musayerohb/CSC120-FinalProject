@@ -59,4 +59,16 @@ Challenges:
 Challenges to fix in the future:
 - Ensure that user can navigate around the house and interact with the house and its objects through the terminal.
 
+4/28/23
+8:35AM - 9:35AM 
+Eva and Musa
 
+Created and Implemented
+- LookAround function works, just have to make sure it works after moving from one room to the next.
+
+Future Goals
+- Implement the rest of the user functions
+- Implement what happens when user doesn't enter in the right commands
+- Make sure all user functions work when the user moves from one room to another.
+- Implement game endings for when user finds the ring
+- Implement combat for when user chooses to steal the ring instead of return it

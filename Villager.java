@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import javax.xml.transform.Source;
+
 public class Villager {
 
     public String startQuest(Scanner userInput, User user) {
@@ -15,7 +17,7 @@ public class Villager {
             System.out.println("'Thank you! Feel free to start looking around whenever you're ready.'");
             System.out.println("");
             System.out.println("The villager steps aside and you walk into the house. You're standing in the living room.");
-            return user.currentLocation = "Living Room";
+            user.currentLocation = "Living Room";
         }
         else if (userSelect.equals("B") || userSelect.equals("b")) {
             System.out.println("'Oh. Okay. Have a great day then, I guess.'");

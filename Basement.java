@@ -11,6 +11,8 @@ public class Basement {
 
     public Basement() {
         this.openableItems = new Hashtable<String, String>();
+        this.lookableItems = new Hashtable<String, String>();
+        this.grabbableItems = new Hashtable<String, String>();
         ArrayList<String> adjacentRooms = new ArrayList<>(Arrays.asList("Basement"));
         openableItems.put("cabinet", "You open the cabinet.");
         openableItems.put("door", "You open the door.");

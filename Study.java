@@ -10,6 +10,8 @@ public class Study {
 
     public Study() {
         this.openableItems = new Hashtable<String, String>();
+        this.lookableItems = new Hashtable<String, String>();
+        this.grabbableItems = new Hashtable<String, String>();
         ArrayList<String> adjacentRooms = new ArrayList<>(Arrays.asList("Bedroom"));
         lookableItems.put("desk", "You look under the desk.");
         openableItems.put("drawer", "You open the drawer.");

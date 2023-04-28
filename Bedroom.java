@@ -10,8 +10,8 @@ public class Bedroom {
 
     public Bedroom() {
         this.openableItems = new Hashtable<String, String>();
-        this.grabbableItems = new Hashtable<String, String>();
         this.lookableItems = new Hashtable<String, String>();
+        this.grabbableItems = new Hashtable<String, String>();
         this.adjacentRooms = new ArrayList<>(Arrays.asList("Study"));
 
         openableItems.put("window", "You open the window and see the town below you. There's a man way down the street yelling about his cabbages.");
