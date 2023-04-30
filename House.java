@@ -17,7 +17,6 @@ public class House {
             rooms.put("Bedroom", "When you look around, you see a well-made bed with furry blankets on top. There's sunlight filtering through a window overlooking the village, and a door leading to the study or back downstairs to the living room.");
             rooms.put("Living Room", "When you look around, you see two couches and a large sofa. There is a large carpet on the floor in the center of the room. There's two doors, one leading upstairs to the bedroom and one to the kitchen.");
             rooms.put("Basement", "When you look around, you see 3 barrels standing up. The floor is bare and the room is dark and lit up by some candles on the walls. There's a door leading back upstairs to the kitchen.");
-        
     }
             
     public String pick_room() {
@@ -29,10 +28,90 @@ public class House {
 
     }
 
+    // public void moveThroughDoor(User user) {
+    //     if (this.adjacentRooms.size() > 1 && user.currentLocation.equals("Living Room")) {
+    //         System.out.println("The door to the Bedroom or to the Kitchen? (Type 'Bedroom' or 'Kitchen' to choose.)");
+    //         String userSelect = user.userInput.nextLine();
+    //         if (userSelect.equals("Bedroom")) {
+    //             System.out.println("You walk into the Bedroom.");
+    //             user.currentLocation = "Bedroom";
+    //         }
+    //         else if (userSelect.equals("Kitchen")) {
+    //             System.out.println("You walk into the Kitchen.");
+    //             user.currentLocation = "Kitchen";
+    //         }
+    //     }
+    //     else {
+    //             if (this.adjacentRooms.size() > 1 && user.currentLocation.equals("Kitchen")) {
+    //                 String userSelect = user.userInput.nextLine();
+    //                 if (userSelect.equals("Living Room")) {
+    //                     System.out.println("You walk into the Living Room.");
+    //                     user.currentLocation = "Living Room";
+    //                 }
+    //                 else if (userSelect.equals("Basement")) {
+    //                     System.out.println("You walk into the Basement.");
+    //                     user.currentLocation = "Basement";
+    //                 }
+    //             }
+    //             else {
+    //                 System.out.println("Sorry, that isn't a room you can move into.");
+    //             }
+    //     }
+    // }
+
     
-    public static void main(String[] args) {
-        House villagerHouse = new House();
-        System.out.println(villagerHouse.rooms.toString());
-        System.out.println(villagerHouse.pick_room());
+    //We have to fix this just to make sure player is actually moving to the correct rooms.
+    public void moveThroughDoor(User user) {
+        if (user.currentLocation.equals("Living Room")) {
+            System.out.println("The door to the Bedroom or to the Kitchen? (Type 'Bedroom' or 'Kitchen' to choose.)");
+            String userSelect = user.userInput.nextLine();
+
+            if (userSelect.equals("Bedroom")) {
+                System.out.println("You go through the door to the Bedroom.");
+                user.currentLocation = "Bedroom";
+                return;
+            }
+            else if (userSelect.equals("Kitchen")) {
+                System.out.println("You walk into the Kitchen.");
+                user.currentLocation = "Kitchen";
+                return;
+            }
+        }
+
+        else if (user.currentLocation.equals("Kitchen")) {
+            System.out.println("The door to the Living Room or the Basement? (Type 'Living Room' or 'Basement' to choose.)");
+            String userSelect = user.userInput.nextLine();
+
+            if (userSelect.equals("Living Room")) {
+                System.out.println("You go through the door to the Living Room.");
+                user.currentLocation = "Living Room";
+                return;
+            }
+            else if (userSelect.equals("Basement")) {
+                System.out.println("You walk into the Basement.");
+                user.currentLocation = "Basement";
+                return;
+            }
+        }
+
+        else if (user.currentLocation.equals("Basement")) {
+            System.out.println("You open the door. You are now in the Kitchen.");
+            user.currentLocation = "Kitchen";
+            return;
+        }
+        
+        else if (user.currentLocation.equals("Bedroom")) {
+            System.out.println("The door to the Living Room or to the Study? (Type 'Living Room' or 'Study' to choose.)");
+            user.currentLocation = "Bedroom";
+            return;
+        }
+        
+        else if (user.currentLocation.equals("Study")) {
+            System.out.println("You open the door. You are now in the Bedroom.");
+            user.currentLocation = "Study";
+            return;
+        }
+
     }
+
 }

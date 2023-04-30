@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Hashtable;
 
-public class Bedroom {
+public class Bedroom extends House {
     public Hashtable<String, String> openableItems;
     public Hashtable<String, String> grabbableItems;
     public Hashtable<String, String> lookableItems;
@@ -14,6 +14,7 @@ public class Bedroom {
         this.grabbableItems = new Hashtable<String, String>();
         this.adjacentRooms = new ArrayList<>(Arrays.asList("Study"));
 
+        openableItems.put("door", "You open the door.");
         openableItems.put("window", "You open the window and see the town below you. There's a man way down the street yelling about his cabbages.");
         
         lookableItems.put("blanket", "You look under the blankets to find the villager's plush pig.");

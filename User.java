@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Hashtable;
 
 public class User {
@@ -15,7 +16,6 @@ public class User {
         this.health = 10;
         this.inventory = new ArrayList<String>();
         this.currentLocation = "Village";
-
     }
 
     //For functionality
@@ -37,79 +37,129 @@ public class User {
     // for loop to run through user response
     // if i is an item in the lookable items list, break the loop and print out the hashtable value of that item.
     // if it isn't an item in the list, it returns a print statement saying something like "You can't look under there."
-    public void lookUnder(String[] words, LivingRoom LivingRoom, Basement Basement, Study Study, Kitchen Kitchen, Bedroom Bedroom) {
+    public void lookUnder(ArrayList<String> wordsList, LivingRoom LivingRoom, Basement Basement, Study Study, Kitchen Kitchen, Bedroom Bedroom) {
         int i = 0;
+
         if (this.currentLocation.equals("Living Room")) {
-            for (i = 0; i < words.length; i++) {
-                if (LivingRoom.lookableItems.contains(words[i])) {
-                    break;
-                }
-                else {
-                    boolean commandContainsItem = false;
-                    System.out.println("");
+            if (LivingRoom.lookableItems.containsKey(wordsList.get(i))) {
+                System.out.println(LivingRoom.lookableItems.get(wordsList.get(i)));
+            }
+            else { 
+                System.out.println("This item doesn't exist in the room.");
+            }
+        }
+    
+        if (this.currentLocation.equals("Kitchen")) {
+            if (Kitchen.lookableItems.containsKey(wordsList.get(i))) {
+                System.out.println(Kitchen.lookableItems.get(wordsList.get(i)));
+            }
+            else { 
+                System.out.println("This item doesn't exist in the room.");
                 }
             }
-            System.out.println(LivingRoom.lookableItems.get(words[i]));
-        }
-        
-        else if (this.currentLocation.equals("Kitchen")) {
-            for (i = 0; i < words.length; i++) {
-                if (Kitchen.lookableItems.contains(i)) {
-                    System.out.println(Kitchen.lookableItems.get(words[i]));
+   
+        if (this.currentLocation.equals("Study")) {
+            if (Study.lookableItems.containsKey(wordsList.get(i))) {
+                System.out.println(Study.lookableItems.get(wordsList.get(i)));
+            }
+            else { 
+                System.out.println("This item doesn't exist in the room.");
                 }
-                else {
-                    System.out.println("This item cannot be looked at!");
-                }
-            }    
-        }                 
+            }
 
-        else if (this.currentLocation.equals("Study")) {
-            for (i = 0; i < words.length; i++) {
-                if (Study.lookableItems.contains(words[i])) {
-                    System.out.println(Study.lookableItems.get(i));
+        if (this.currentLocation.equals("Bedroom")) {
+            if (Bedroom.lookableItems.containsKey(wordsList.get(i))) {
+                System.out.println(Bedroom.lookableItems.get(wordsList.get(i)));
+            }
+            else { 
+                System.out.println("This item doesn't exist in the room.");
                 }
-            }    
-        }  
-
-        else if (this.currentLocation.equals("Bedroom")) {
-            for (i = 0; i < words.length; i++) {
-                if (Bedroom.lookableItems.contains(i)) {
-                    System.out.println(Bedroom.lookableItems.get(words[i]));
-                }
-                else {
-                    System.out.println("This item cannot be looked at!");
-                }
-            }    
-        }  
+            }
         
         if (this.currentLocation.equals("Basement")) {
-            for (i = 0; i < words.length; i++) {
-                if (Basement.lookableItems.contains(words[i])) {
-                    System.out.println(Basement.lookableItems.get(i));
+            if (Basement.lookableItems.containsKey(wordsList.get(i))) {
+                System.out.println(Basement.lookableItems.get(wordsList.get(i)));
+            }
+            else { 
+                System.out.println("This item doesn't exist in the room.");
                 }
-                else {
-                    System.out.println("This item cannot be looked at!");
-                }
-            }    
-        }          
+            }
+        }
 
-    }
     
-    public void open() {
+    public void open(House House, ArrayList<String> wordsList, LivingRoom LivingRoom, Basement Basement, Study Study, Kitchen Kitchen, Bedroom Bedroom) {
         //check if user is in the room where the object is first.
         //room has a list of objects based on descriptions.
         //grabs object 'key' value, which is the description of whats inside the object, and prints it out.
         //checks where ring is through a boolean statement after each 'open' interaction.
-        Hashtable<String, String> openable_items = new Hashtable<String, String>();
-        openable_items.put("cabinet", "You open the cabinet.");
-        openable_items.put("door", "You open the door.");
-        openable_items.put("drawer", "You open the drawer.");
-        openable_items.put("cabinets", "You open the cabinets.");
-        openable_items.put("doors", "You open the doors.");
-        openable_items.put("drawers", "You open the drawers.");
-        openable_items.put("barrel", "You open the barrel.");
-        openable_items.put("barrels", "You open the barrels.");
-    }
+
+        int i = 0;
+        if (this.currentLocation.equals("Living Room")) {
+            if (wordsList.get(i).equals("door")) {
+                House.moveThroughDoor(this);
+                return;
+            }
+            else if (LivingRoom.openableItems.containsKey(wordsList.get(i))) {
+                System.out.println(LivingRoom.openableItems.get(wordsList.get(i)));
+            }
+            else { 
+                System.out.println("This item doesn't exist in the room.");
+            }
+        }
+    
+        if (this.currentLocation.equals("Kitchen")) {
+            if (wordsList.get(i).equals("door")) {
+                House.moveThroughDoor(this);
+                return;
+            }
+            else if (Kitchen.openableItems.containsKey(wordsList.get(i))) {
+                System.out.println(Kitchen.openableItems.get(wordsList.get(i)));
+            }
+            else { 
+                System.out.println("This item doesn't exist in the room.");
+                }
+            }
+   
+        if (this.currentLocation.equals("Study")) {
+            if (wordsList.get(i).equals("door")) {
+                House.moveThroughDoor(this);
+                return;
+            }
+            else if (Study.openableItems.containsKey(wordsList.get(i))) {
+                System.out.println(Study.openableItems.get(wordsList.get(i)));
+            }
+            else { 
+                System.out.println("This item doesn't exist in the room.");
+                }
+            }
+
+        if (this.currentLocation.equals("Bedroom")) {
+            if (wordsList.get(i).equals("door")) {
+                House.moveThroughDoor(this);
+                return;
+            }
+            else if (Bedroom.openableItems.containsKey(wordsList.get(i))) {
+                System.out.println(Bedroom.openableItems.get(wordsList.get(i)));
+            }
+            else { 
+                System.out.println("This item doesn't exist in the room.");
+                }
+            }
+        
+        if (this.currentLocation.equals("Basement")) {
+            if (wordsList.get(i).equals("door")) {
+                House.moveThroughDoor(this);
+                return;
+            }
+            else if (Basement.openableItems.containsKey(wordsList.get(i))) {
+                System.out.println(Basement.openableItems.get(wordsList.get(i)));
+            }
+            else { 
+                System.out.println("This item doesn't exist in the room.");
+                }
+            }
+        }
+    
 
     public void lookAround(House House) {
         if (this.currentLocation.equals("Living Room")) {
@@ -129,8 +179,59 @@ public class User {
         }
     }
     
-    public void take() {
+    public void take(ArrayList<String> wordsList, LivingRoom LivingRoom, Basement Basement, Study Study, Kitchen Kitchen, Bedroom Bedroom) {
+        int i = 0;
+        if (this.currentLocation.equals("Living Room")) {
+            if (LivingRoom.grabbableItems.containsKey(wordsList.get(i))) {
+                System.out.println(LivingRoom.grabbableItems.get(wordsList.get(i)));
+                this.inventory.add(wordsList.get(i));
+            }
+            else { 
+                System.out.println("This item doesn't exist in the room.");
+            }
+        }
         
+        if (this.currentLocation.equals("Kitchen")) {
+            if (Kitchen.grabbableItems.containsKey(wordsList.get(i))) {
+                System.out.println(Kitchen.grabbableItems.get(wordsList.get(i)));
+                this.inventory.add(wordsList.get(i));
+            }
+            else { 
+                System.out.println("This item doesn't exist in the room.");
+            }
+        }
+
+        if (this.currentLocation.equals("Study")) {
+            if (Study.grabbableItems.containsKey(wordsList.get(i))) {
+                System.out.println(Study.grabbableItems.get(wordsList.get(i)));
+                this.inventory.add(wordsList.get(i));
+            }
+            else { 
+                System.out.println("This item doesn't exist in the room.");
+            }
+        }
+
+        if (this.currentLocation.equals("Bedroom")) {
+            if (Basement.grabbableItems.containsKey(wordsList.get(i))) {
+                System.out.println(Bedroom.grabbableItems.get(wordsList.get(i)));
+                this.inventory.add(wordsList.get(i));
+            }
+            else { 
+                System.out.println("This item doesn't exist in the room.");
+            }
+        }
+        
+        if (this.currentLocation.equals("Basement")) {
+            if (Basement.grabbableItems.containsKey(wordsList.get(i))) {
+                System.out.println(Basement.grabbableItems.get(wordsList.get(i)));
+                this.inventory.add(wordsList.get(i));
+            }
+            else {
+                System.out.println("This item doesn't exist in the room.");
+            }
+        }
+        
+
     }
     
 
@@ -151,21 +252,43 @@ public class User {
     public void playGame(House House, LivingRoom LivingRoom, Basement Basement, Study Study, Kitchen Kitchen, Bedroom Bedroom) {
         while (true) {
             String userPlay = userInput.nextLine();
-
-            //System.out.println(userPlay);
+            
             userPlay.toLowerCase();
             String[] words = userPlay.split(" ");
+
+            ArrayList<String> wordsList = new ArrayList<String>(Arrays.asList(words));
+            System.out.println(wordsList.toString());
 
             if (words[0].equals("look")) {
                 if (words[1].equals("around")) {
                     lookAround(House);
                 }
                 else if (words[1].equals("under")) {
-                    lookUnder(words, LivingRoom, Basement, Study, Kitchen, Bedroom);
+                    wordsList.remove("look");
+                    wordsList.remove("under");
+                    System.out.println(wordsList.toString());
+
+                    lookUnder(wordsList, LivingRoom, Basement, Study, Kitchen, Bedroom);
+                    //System.out.println(lookUnder("couch"));
+                }
+                else {
+                    System.out.println("Invalid command, you can only 'look under' objects or 'look around' the room.");
                 }
             }
+            
+            else if (words[0].equals("open")) {
+                wordsList.remove("open");
+                open(House, wordsList, LivingRoom, Basement, Study, Kitchen, Bedroom);
+            }
+
+            else if (words[0].equals("grab") || words[0].equals("take")) {
+                wordsList.remove("grab");
+                wordsList.remove("take");
+                take(wordsList, LivingRoom, Basement, Study, Kitchen, Bedroom);
+            }
+            
         }
-        
+    }
         // if (userPlay.contains("lookaround")) {
         //     lookAround(House);
         // }
@@ -175,11 +298,9 @@ public class User {
         // else if (userPlay.contains("look under")) {
         //     lookUnder();
         // };
-    }
+    
 
 
-    
-    
 
 
     public static void main(String[] args) {

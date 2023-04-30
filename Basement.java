@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Hashtable;
 
-public class Basement {
+public class Basement extends House {
 
     public Hashtable<String, String> openableItems;
     public Hashtable<String, String> grabbableItems;
@@ -35,7 +35,7 @@ public class Basement {
                 System.out.println("You walk into the Kitchen.");
                 user.currentLocation = "Kitchen";
             }
-
+            
         }
     }
     

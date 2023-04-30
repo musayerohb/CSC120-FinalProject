@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Hashtable;
 
-public class Kitchen {
+public class Kitchen extends House {
     public Hashtable<String, String> openableItems;
     public Hashtable<String, String> grabbableItems;
     public Hashtable<String, String> lookableItems;

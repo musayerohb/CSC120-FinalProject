@@ -5,3 +5,8 @@ public class Ring {
     //heal()
     //isGlowing()
 }
+
+//if (House.picked_room().equals("Kitchen")) {
+
+
+//}
