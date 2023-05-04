@@ -13,30 +13,15 @@ public class Kitchen extends House {
         this.lookableItems = new Hashtable<String, String>();
         this.grabbableItems = new Hashtable<String, String>();    
         this.adjacentRooms = new ArrayList<>(Arrays.asList("Living Room", "Basement"));
-        openableItems.put("door", "You open the door.");
-        lookableItems.put("table", "You look under the table.");
-        lookableItems.put("stool", "You look under the stool.");
-        lookableItems.put("pot", "You look under the pot.");
-        openableItems.put("cabinet", "You open the cabinet.");
-
-
-    }
-    
-    //We need to generalize this later so we don't have to rewrite it over and again.
-    public void moveThroughDoor(User user) {
-        if (this.adjacentRooms.size() > 1) {
-            System.out.println("The door to the Bedroom or to the Kitchen? (Type 'Bedroom' or 'Kitchen' to choose.)");
-            String userSelect = user.userInput.nextLine();
-            if (userSelect.equals("Bedroom")) {
-                System.out.println("You walk into the Bedroom.");
-                user.currentLocation = "Bedroom";
-            }
-            else if (userSelect.equals("Kitchen")) {
-                System.out.println("You walk into the Kitchen.");
-                user.currentLocation = "Kitchen";
-            }
-
-        }
+        
+        openableItems.put("door", "\nYou open the door.");
+        openableItems.put("cabinet", "\nYou open the cabinet. There's some plates and cups, as well as a spatula placed in front of them. You can make out some writing on the handle: 'I'm Ready! I'm Ready! I'm Ready!' Ready for what? You take time to ponder the question.");
+        openableItems.put("cabinets", "\nYou open the cabinets. There's some plates and cups in most of them. In one of them, a spatula sits in front of some plates. You can make out some writing on the handle: 'I'm Ready! I'm Ready! I'm Ready!' Ready for what? You take time to ponder the question.");
+        lookableItems.put("table", "\nYou look under the table. There's a plastic green container lying on the ground, with remnants of food inside. You silently judge the person who left there it instead of returning it to where it belongs.");
+        lookableItems.put("stool", "\nYou look under the stool. There is nothing of note.");
+        lookableItems.put("stools", "\nYou look under the stools. There is nothing of note.");
+        lookableItems.put("pot", "\nYou look under the pot. You spot a weed...of the plant variety. The kind in fields. Flower fields. Get your head out of the gutter!");
+        grabbableItems.put("spatula", "\nYou pick up the spatula and put it inside your inventory.");
     }
     
 }

@@ -104,3 +104,46 @@ Future Goals
  - Implement conditional for when user looks at the item that the program randomly chose the ring to be hidden in
  - Program ending(s) when user finds the ring
  - If we have time, begin work on Bandits class and combat
+
+
+5/1/23
+3:00 - 5:00pm
+Eva and Musa
+
+Created and Implemented
+- Inventory and take() method is fully functional. Added user function to be able to view inventory.
+- All possible ring locations have been set.
+
+Future Goals
+- Make sure that ring is actually placed in a random location at the beginning of each game.
+- Work on implementing final stage of the game.
+
+Challenges
+- Fix ring not being placed in a random location at the beginning of the game. 
+
+5/2/23
+10:00 - 10:40am
+Eva & Musa
+
+Created and Implemented
+- Expanded some print statements for non-ring lookableItems and openableItems
+
+Fixed
+- pickRoom method
+- placeInRoom is fully functional
+
+Future Goals
+- Finish expanding print statements for non-ring lookableItems and openableItems
+- Add use functionality for all grabbableItems and write print statements/endings based on which item the user uses against the bandits
+- Write Javadocs
+
+5/2/23
+6:30 - 9:30PM
+- Implemented the combat system!
+- Created all game endings.
+- Started working on spacing
+
+5/3
+12:00 - 1:10PM
+- Fixed most of the spacing, made sure to input error messages and allow players to retry commands if they put in the wrong one.
+- Implemented showOptions() method that prints out instructions in case the player needs to reference the instructions again.  
