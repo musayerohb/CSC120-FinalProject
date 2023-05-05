@@ -145,5 +145,21 @@ Future Goals
 
 5/3
 12:00 - 1:10PM
+Eva & Musa
+
 - Fixed most of the spacing, made sure to input error messages and allow players to retry commands if they put in the wrong one.
 - Implemented showOptions() method that prints out instructions in case the player needs to reference the instructions again.  
+
+5/4
+9:25-10:40AM
+Eva & Musa
+
+~ Presentation Day! ~
+
+- Found bugs, mostly regarding users attempting to grab items that we didn't consider making grabbable and typing in their full responses during the dialogue segment rather than letters.
+
+6:00 - 7:00PM
+Eva & Musa
+
+- Fixed all bugs found during presentation day.
+- Implemented final spacing & formatting fixes.
