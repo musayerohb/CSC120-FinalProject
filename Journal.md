@@ -168,6 +168,6 @@ Eva & Musa
 1:00pm - 7:00pm
 Eva and Musa
 
-- 
-- 
-- 
+- Implemented javadocs.
+- Changed error messages when performing look under, open, and grab functions to acknowledge that the item a player is trying to interact with may not be interactable at all.
+- Ensured that code does not break if user enters look under, open, grab, and use commands with no item attached to it.

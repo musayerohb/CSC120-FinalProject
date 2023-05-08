@@ -48,14 +48,15 @@ public class User {
     public void lookUnder(ArrayList<String> wordsList, LivingRoom LivingRoom, Basement Basement, Study Study, Kitchen Kitchen, Bedroom Bedroom) {
         int i = 0;
         if (wordsList.isEmpty()) {
-            System.out.println("\nYou haven't entered in an item to look under. Type 'look under' and then the item you want to look under to complete this command.");
+            System.out.println("\nYou haven't entered in an item to look under. Type 'look under' and then the item you want to look under to complete this command.\n");
+            return;
         }
         else if (this.currentLocation.equals("Living Room")) {
             if (LivingRoom.lookableItems.containsKey(wordsList.get(i))) {
                 System.out.println("\n" + LivingRoom.lookableItems.get(wordsList.get(i)) + "\n");
             }
             else { 
-                System.out.println("This item doesn't exist in the room or if it does, you cannot perform this action on it.");
+                System.out.println("\nThis item doesn't exist in the room or if it does, you cannot perform this action on it.\n");
             }
         }
         
@@ -64,7 +65,7 @@ public class User {
                 System.out.println("\n" + Kitchen.lookableItems.get(wordsList.get(i)) + "\n");
             }
             else { 
-                System.out.println("This item doesn't exist in the room or if it does, you cannot perform this action on it.");
+                System.out.println("\nThis item doesn't exist in the room or if it does, you cannot perform this action on it.\n");
             }
         }
    
@@ -108,6 +109,11 @@ public class User {
      */
     public void open(House House, ArrayList<String> wordsList, LivingRoom LivingRoom, Basement Basement, Study Study, Kitchen Kitchen, Bedroom Bedroom) {
         int i = 0;
+        if (wordsList.isEmpty()) {
+            System.out.println("\nYou haven't entered in an item to open. Type 'look under' and then the item you want to open to complete this command.\n");
+            return;
+        }
+        
         if (this.currentLocation.equals("Living Room")) {
             if (wordsList.get(i).equals("door")) {
                 House.moveThroughDoor(this);
@@ -117,7 +123,7 @@ public class User {
                 System.out.println("\n" + LivingRoom.openableItems.get(wordsList.get(i)) + "\n");
             }
             else { 
-                System.out.println("This item doesn't exist in the room or if it does, you cannot perform this action on it.\n");
+                System.out.println("\nThis item doesn't exist in the room or if it does, you cannot perform this action on it.\n");
             }
         }
 
@@ -130,7 +136,7 @@ public class User {
                 System.out.println("\n" + Kitchen.openableItems.get(wordsList.get(i)) + "\n");
             }
             else { 
-                System.out.println("This item doesn't exist in the room or if it does, you cannot perform this action on it.");
+                System.out.println("\nThis item doesn't exist in the room or if it does, you cannot perform this action on it.\n");
             }
             
         }
@@ -157,7 +163,7 @@ public class User {
                 System.out.println("\n" + Bedroom.openableItems.get(wordsList.get(i)) + "\n");
             }
             else { 
-                System.out.println("This item doesn't exist in the room or if it does, you cannot perform this action on it.");
+                System.out.println("\nThis item doesn't exist in the room or if it does, you cannot perform this action on it.\n");
             }
         }
         
@@ -170,12 +176,12 @@ public class User {
                 System.out.println("\n" + Basement.openableItems.get(wordsList.get(i)) + "\n");
             }
             else { 
-                System.out.println("This item doesn't exist in the room or if it does, you cannot perform this action on it.");
+                System.out.println("\nThis item doesn't exist in the room or if it does, you cannot perform this action on it.\n");
             }
         }
         
         if (wordsList.isEmpty()) {
-            System.out.println("\nYou haven't entered in an item to open. Type 'open' and then the item you want to open to complete this command.");
+            System.out.println("\nYou haven't entered in an item to open. Type 'open' and then the item you want to open to complete this command.\n");
         }
     }
     
@@ -212,6 +218,11 @@ public class User {
      */
     public void take(ArrayList<String> wordsList, LivingRoom LivingRoom, Basement Basement, Study Study, Kitchen Kitchen, Bedroom Bedroom) {
         int i = 0;
+        if (wordsList.isEmpty()) {
+            System.out.println("\nYou haven't entered in an item to take. Type 'take' and then the item you want to take to complete this command.\n");
+            return;
+        }
+
         if (this.currentLocation.equals("Living Room")) {
             if (LivingRoom.grabbableItems.containsKey(wordsList.get(i))) {
                 System.out.println("\n" + LivingRoom.grabbableItems.get(wordsList.get(i)) + "\n");
@@ -228,7 +239,7 @@ public class User {
                 this.inventory.add(wordsList.get(i));
             }
             else { 
-                System.out.println("This item doesn't exist in the room or if it does, you cannot perform this action on it.");
+                System.out.println("\nThis item doesn't exist in the room or if it does, you cannot perform this action on it.\n");
             }
         }
 
@@ -238,7 +249,7 @@ public class User {
                 this.inventory.add(wordsList.get(i));
             }
             else { 
-                System.out.println("This item doesn't exist in the room or if it does, you cannot perform this action on it.");
+                System.out.println("\nThis item doesn't exist in the room or if it does, you cannot perform this action on it.\n");
             }
         }
 
@@ -248,7 +259,7 @@ public class User {
                 this.inventory.add(wordsList.get(i));
             }
             else { 
-                System.out.println("This item doesn't exist in the room or if it does, you cannot perform this action on it.");
+                System.out.println("\nThis item doesn't exist in the room or if it does, you cannot perform this action on it.\n");
             }
         }
         
@@ -258,7 +269,7 @@ public class User {
                 this.inventory.add(wordsList.get(i));
             }
             else {
-                System.out.println("This item doesn't exist in the room or if it does, you cannot perform this action on it.");
+                System.out.println("\nThis item doesn't exist in the room or if it does, you cannot perform this action on it.\n");
             }
         }
         
@@ -410,6 +421,10 @@ public class User {
                 System.out.println(this.inventory.toString());
             }
             else if (words[0].equals("use")) {
+                if (wordsList.size() == 1) {
+                    System.out.println("\nYou haven't entered in an item to use. Type 'use' and then the item you want to use to complete this command.\n");
+                    continue;
+                }
                 if (this.inventory.contains(wordsList.get(1)) && this.usableItems.containsKey(wordsList.get(1))) {
                     if (wordsList.get(1).equals("ring")) {
                         System.out.println("\nOh no! You were robbed and lost the ring and the rest of your items. Looks like today's just not your day.");
