@@ -14,7 +14,7 @@ public class User {
     public Hashtable <String, String> usableItems;
 
     /**
-     * The constructor for the LivingRoom class. Creates an instance of the class with three hashtables of items one can open, look under, and/or grab in the room. The keys of the hashtables are the item names, and the values describe what happens when one opens, looks under, and/or grabs the item. 
+     * The constructor for the User class. Creates an instance of the user class with a hashtable of items the player can use.
      */
     public User() {
         this.inventory = new ArrayList<String>();
@@ -55,7 +55,7 @@ public class User {
                 System.out.println("\n" + LivingRoom.lookableItems.get(wordsList.get(i)) + "\n");
             }
             else { 
-                System.out.println("This item doesn't exist in the room.");
+                System.out.println("This item doesn't exist in the room or if it does, you cannot perform this action on it.");
             }
         }
         
@@ -64,8 +64,8 @@ public class User {
                 System.out.println("\n" + Kitchen.lookableItems.get(wordsList.get(i)) + "\n");
             }
             else { 
-                System.out.println("This item doesn't exist in the room.");
-                }
+                System.out.println("This item doesn't exist in the room or if it does, you cannot perform this action on it.");
+            }
         }
    
         if (this.currentLocation.equals("Study")) {
@@ -73,7 +73,7 @@ public class User {
                 System.out.println("\n" + Study.lookableItems.get(wordsList.get(i)) + "\n");
             }
             else { 
-                System.out.println("\nThis item doesn't exist in the room.\n");
+                System.out.println("\nThis item doesn't exist in the room or if it does, you cannot perform this action on it.\n");
             }
         }
 
@@ -82,7 +82,7 @@ public class User {
                 System.out.println("\n" + Bedroom.lookableItems.get(wordsList.get(i)) + "\n");
             }
             else { 
-                System.out.println("\nThis item doesn't exist in the room.\n");
+                System.out.println("\nThis item doesn't exist in the room or if it does, you cannot perform this action on it.\n");
             }
         }
         
@@ -91,7 +91,7 @@ public class User {
                 System.out.println("\n" + Basement.lookableItems.get(wordsList.get(i)) + "\n");
             }
             else { 
-                System.out.println("\nThis item doesn't exist in the room.\n");
+                System.out.println("\nThis item doesn't exist in the room or if it does, you cannot perform this action on it.\n");
             }
         }
     }
@@ -117,7 +117,7 @@ public class User {
                 System.out.println("\n" + LivingRoom.openableItems.get(wordsList.get(i)) + "\n");
             }
             else { 
-                System.out.println("This item doesn't exist in the room.\n");
+                System.out.println("This item doesn't exist in the room or if it does, you cannot perform this action on it.\n");
             }
         }
 
@@ -130,7 +130,7 @@ public class User {
                 System.out.println("\n" + Kitchen.openableItems.get(wordsList.get(i)) + "\n");
             }
             else { 
-                System.out.println("This item doesn't exist in the room.");
+                System.out.println("This item doesn't exist in the room or if it does, you cannot perform this action on it.");
             }
             
         }
@@ -144,7 +144,7 @@ public class User {
                 System.out.println("\n" + Study.openableItems.get(wordsList.get(i)) + "\n");
             }
             else { 
-                System.out.println("\nThis item doesn't exist in the room.\n");
+                System.out.println("\nThis item doesn't exist in the room or if it does, you cannot perform this action on it.\n");
             }
         }
 
@@ -157,7 +157,7 @@ public class User {
                 System.out.println("\n" + Bedroom.openableItems.get(wordsList.get(i)) + "\n");
             }
             else { 
-                System.out.println("This item doesn't exist in the room.");
+                System.out.println("This item doesn't exist in the room or if it does, you cannot perform this action on it.");
             }
         }
         
@@ -170,7 +170,7 @@ public class User {
                 System.out.println("\n" + Basement.openableItems.get(wordsList.get(i)) + "\n");
             }
             else { 
-                System.out.println("This item doesn't exist in the room.");
+                System.out.println("This item doesn't exist in the room or if it does, you cannot perform this action on it.");
             }
         }
         
@@ -218,7 +218,7 @@ public class User {
                 this.inventory.add(wordsList.get(i));
             }
             else { 
-                System.out.println("This item doesn't exist in the room.");
+                System.out.println("This item doesn't exist in the room or if it does, you cannot perform this action on it.");
             }
         }
         
@@ -228,7 +228,7 @@ public class User {
                 this.inventory.add(wordsList.get(i));
             }
             else { 
-                System.out.println("This item doesn't exist in the room.");
+                System.out.println("This item doesn't exist in the room or if it does, you cannot perform this action on it.");
             }
         }
 
@@ -238,7 +238,7 @@ public class User {
                 this.inventory.add(wordsList.get(i));
             }
             else { 
-                System.out.println("This item doesn't exist in the room.");
+                System.out.println("This item doesn't exist in the room or if it does, you cannot perform this action on it.");
             }
         }
 
@@ -248,7 +248,7 @@ public class User {
                 this.inventory.add(wordsList.get(i));
             }
             else { 
-                System.out.println("This item doesn't exist in the room.");
+                System.out.println("This item doesn't exist in the room or if it does, you cannot perform this action on it.");
             }
         }
         
@@ -258,7 +258,7 @@ public class User {
                 this.inventory.add(wordsList.get(i));
             }
             else {
-                System.out.println("This item doesn't exist in the room.");
+                System.out.println("This item doesn't exist in the room or if it does, you cannot perform this action on it.");
             }
         }
         

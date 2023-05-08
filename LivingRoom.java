@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 
 /**
- * Initializes Kitchen class while extending methods from House class.
+ * Initializes LivingRoom class while extending methods from House class.
  */
 public class LivingRoom extends House {
     

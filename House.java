@@ -70,7 +70,7 @@ public class House {
     
     /**
      * Sets the user's current location to the room they choose to move to from a predetermined selection of rooms adjacent to the one they're already in. Called whenever the user opens a door.
-     * @param user
+     * @param user This is keeping track of the player's current location. 
      */
     public void moveThroughDoor(User user) {
         if (user.currentLocation.equals("Living Room")) {

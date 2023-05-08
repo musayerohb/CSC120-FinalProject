@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 
 /**
- * Initializes Kitchen class while extending methods from House class.
+ * Initializes Study class while extending methods from House class.
  */
 public class Study extends House {
     
@@ -12,7 +12,7 @@ public class Study extends House {
     public ArrayList<String> adjacentRooms;
 
     /**
-     * The constructor for the LivingRoom class. Creates an instance of the class with three hashtables of items one can open, look under, and/or grab in the room. The keys of the hashtables are the item names, and the values describe what happens when one opens, looks under, and/or grabs the item. 
+     * The constructor for the Study class. Creates an instance of the class with three hashtables of items one can open, look under, and/or grab in the room. The keys of the hashtables are the item names, and the values describe what happens when one opens, looks under, and/or grabs the item. 
      */
     public Study() {
         this.openableItems = new Hashtable<String, String>();
